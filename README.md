@@ -7,11 +7,10 @@ Description
 -----------
 project!
 
+url on heroku: [link](http://vtex-project-gbomfim.herokuapp.com)
 
-Day by day
-----------
-Sprint 1
-----------
+Day by day - Sprint 1
+---------------------
 
 day 1:
 * criando a estrutura do projeto;
