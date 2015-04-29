@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+	{{#each statics.css}}
+        <link rel='stylesheet' href='{{this}}'/>
+	{{/each}}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding Challenge VTEX</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" >
+</head>
+<body ng-app="vtexApp">
+	<div class="container">
+		<div class="row">
+			<h1>Dev Shop</h1>
+		</div>
+		<div ng-view>
+			huw
+		</div>
+	</div>
+
+
+	{{#each statics.jsLibs}}
+		<script type="text/javascript" src="{{this}}"></script>
+	{{/each}}
+	{{#each statics.jsApp}}
+		<script type="text/javascript" src="{{this}}"></script>
+	{{/each}}
+</body>
+</html>
+
