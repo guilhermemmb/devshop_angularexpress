@@ -11,25 +11,47 @@
     <title>Coding Challenge VTEX</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="/" >
+    <base href="/">
 </head>
 <body ng-app="vtexApp">
-	<div class="container">
-		<div class="row">
-			<h1>Dev Shop</h1>
-		</div>
-		<div ng-view>
-			huw
+	<div class="header">
+		<div class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+							data-target="#js-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#/">DevShop</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/">home</a></li>
+						<li><a ng-href="/cart">view cart</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 
 
-	{{#each statics.jsLibs}}
-		<script type="text/javascript" src="{{this}}"></script>
-	{{/each}}
-	{{#each statics.jsApp}}
-		<script type="text/javascript" src="{{this}}"></script>
-	{{/each}}
+	<div class="container">
+		<div ng-view>
+		</div>
+	</div>
+
+
+{{#each statics.jsLibs}}
+    <script type="text/javascript" src="{{this}}"></script>
+{{/each}}
+{{#each statics.jsApp}}
+    <script type="text/javascript" src="{{this}}"></script>
+{{/each}}
 </body>
 </html>
 

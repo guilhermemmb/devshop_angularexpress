@@ -1,13 +1,9 @@
-# vtproject
-
-VTEX PROJECT GBOMFIM
-====================
+PROJECT ANGULAR+EXPRESS
+=======================
 
 Description
 -----------
 project!
-
-url on heroku: [link](http://vtex-project-gbomfim.herokuapp.com)
 
 Day by day - Sprint 1
 ---------------------

@@ -12,10 +12,12 @@ var DEFAULT_OPTIONS = {
 	}
 };
 
-function getUsersFromOrg() {
+function getUsersFromOrg(page, size) {
 	var defer = q.defer();
 
-	var options = _.extend({}, DEFAULT_OPTIONS, { url : BASE_URL + '/orgs/'  + ORGANIZATION + '/members' });
+	var options = _.extend({}, DEFAULT_OPTIONS, {
+		url : BASE_URL + '/orgs/'  + ORGANIZATION + '/members'  + '?page=' + page + '&per_page=' + size
+	});
 
 	request.get(options, function (error, response) {
 		if(error != undefined) return defer.reject(error);

@@ -14,6 +14,8 @@ router.get('/', function (req, res, next) {
 			css: statics.css
 		}
 	});
+
+	return;
 });
 
 var getStatics = (function () {

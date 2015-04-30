@@ -5,9 +5,12 @@ var _ = require('lodash');
 var githubRepo = require('../repositories/github');
 
 router.get('/getAll', function(req, res, next) {
-	githubRepo.getUsersFromOrg().then(function (data) {
+	var page = req.params.page || 1;
+	var size = req.params.size || 30;
+
+	githubRepo.getUsersFromOrg(page, size).then(function (data) {
 		var responseData = _.map(data).map(function (element) {
-			return _.pick(element, ['login', 'id', 'url', 'avatar_url']);
+			return _.pick(element, ['login', 'id', 'html_url', 'avatar_url']);
 		});
 
 		res.json(responseData);
