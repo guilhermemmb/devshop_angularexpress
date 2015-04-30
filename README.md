@@ -15,6 +15,10 @@ day 1:
 * github commit && heroku up;
 
 day 2:
+* diretivas de listagem
+* reorganizacao do projeto
+* chamadas autenticadas ao github api
+* calculo do valor
 
 day 3:
 
