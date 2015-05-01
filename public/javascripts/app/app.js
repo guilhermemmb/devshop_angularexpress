@@ -2,7 +2,8 @@
 
 var app = angular.module('vtexApp', [
 	'ngRoute',
-	'ui.mask'
+	'ui.mask',
+	'ngCookies'
 ]).config(['$locationProvider', function($locationProvider) {
 	$locationProvider.html5Mode(true);
 }])

@@ -29,6 +29,9 @@ day 3:
 * calculo do valor total
 
 day 4:
+* persistencia do carrinho em memoria
+* geracao de token 'per user' -> per browser -> cookie
+* remocao de item do carrinho
 
 ### Entrega após o 4o dia
 

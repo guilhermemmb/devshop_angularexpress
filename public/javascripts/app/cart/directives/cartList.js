@@ -10,11 +10,17 @@ angular.module('vtexApp').directive('cartList', ['cartService', function (cartSe
 		controller: function ($scope) {
 			var vm = this;
 
-			vm.list = cartService.getItems();
+			vm.list = {};
 			vm.total = 0;
 
 			function getListSize() {
-				return (Object.keys(vm.list).length);
+				if(vm.list) {
+					return (Object.keys(vm.list).length);
+				}
+				else {
+					0;
+				}
+
 			}
 			vm.getListSize = getListSize;
 
@@ -51,7 +57,10 @@ angular.module('vtexApp').directive('cartList', ['cartService', function (cartSe
 			}
 
 			(function () {
-				calculateTotal();
+				cartService.getItems().then(function (data) {
+					vm.list = data;
+					calculateTotal();
+				});
 			})();
 
 		}

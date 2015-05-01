@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('vtexApp').service('cartService', ['cartRepository', function (cartRepository) {
-	var cartItems = {};
+angular.module('vtexApp').service('cartService', ['cartRepository', '$q', function (cartRepository, $q) {
+	var cartItems = undefined;
 
 	var timeout = undefined;
 
@@ -10,12 +10,31 @@ angular.module('vtexApp').service('cartService', ['cartRepository', function (ca
 
 		timeout = setTimeout(function () {
 			cartRepository.save(cartItems)
-		}, 10000);
+		}, 5000);
 	}
 
-	function get() {
-		return cartItems;
-	}
+	var get = (function () {
+		var defer = undefined;
+
+		return function() {
+			if(defer === undefined) {
+				defer = $q.defer();
+			}
+
+			if(cartItems === undefined) {
+				cartRepository.getCart().then(function (data) {
+					cartItems = data;
+
+					defer.resolve(cartItems);
+				});
+			}
+			else {
+				defer.resolve(cartItems);
+			}
+
+			return defer.promise;
+		}
+	})();
 
 	function add(itm) {
 		if(cartItems[itm.login]!== undefined)  {

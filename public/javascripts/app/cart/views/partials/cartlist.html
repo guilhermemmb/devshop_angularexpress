@@ -23,7 +23,7 @@
                 </td>
                 <td>{{(item.value * item.hours).toFixed(2)}}</td>
                 <td>
-                    <button ng-click="vm.remove(item)" />
+                    <button ng-click="vm.remove(item)" value="remove">remove</button>
                 </td>
             </tr>
             <tr ng-if="vm.getListSize() === 0">
