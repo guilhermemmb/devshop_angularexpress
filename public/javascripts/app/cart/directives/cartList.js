@@ -2,7 +2,7 @@
 
 angular.module('vtexApp').directive('cartList', ['cartService', function (cartService) {
 	return {
-		templateUrl: '/javascripts/app/cart/views/partials/cartList.html',
+		templateUrl: '/javascripts/app/cart/views/partials/cartlist.html',
 		restrict: 'E',
 		scope: {
 		},
