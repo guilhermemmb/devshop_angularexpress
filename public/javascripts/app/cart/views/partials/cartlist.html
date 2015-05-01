@@ -1,0 +1,50 @@
+<div class="cart row">
+    <h2>Cart</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Username</th>
+                <th>Value Per hour</th>
+                <th>Hours</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.list">
+                <td ><img style="height:50px" ng-src="{{::item.avatar_url}}"/></td>
+                <td>{{::item.login}}</td>
+                <td><a ng-href="{{::item.html_url}}" target="_blank">profile</a></td>
+                <td>$ {{::item.value}}</td>
+                <td>
+                    <input type="text" ng-model="item.hours"
+                           ng-init="item.lastHoursValue = item.hours"
+                           ng-blur="vm.onQuantityChange(item)"/>
+                </td>
+                <td>{{(item.value * item.hours).toFixed(2)}}</td>
+                <td>
+                    <button ng-click="vm.remove(item)" />
+                </td>
+            </tr>
+            <tr ng-if="vm.getListSize() === 0">
+                <td >Your cart is empty :(</td>
+                <td colspan="6"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="totalizer row" ng-if="vm.getListSize() > 0">
+    <div class="col-sm-6">
+        <div class="row">
+            <table class="table">
+                <tbody>
+                <tr class="total">
+                    <td>Total</td>
+                    <td>{{vm.total}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

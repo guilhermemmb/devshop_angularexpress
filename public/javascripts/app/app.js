@@ -1,7 +1,8 @@
 'use strict';
 
 var app = angular.module('vtexApp', [
-	'ngRoute'
+	'ngRoute',
+	'ui.mask'
 ]).config(['$locationProvider', function($locationProvider) {
 	$locationProvider.html5Mode(true);
 }])
@@ -13,7 +14,7 @@ var app = angular.module('vtexApp', [
 	})
 	.when('/cart', {
 		templateUrl:'/javascripts/app/cart/views/index.html',
-		controller: 'cartPageController'
+		controller: 'cartController'
 	}).otherwise({
 		redirectTo: '/home'
 	});

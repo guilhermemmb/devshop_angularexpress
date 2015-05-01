@@ -15,12 +15,17 @@ day 1:
 * github commit && heroku up;
 
 day 2:
-* diretivas de listagem
+* diretivas de listagem de devs
 * reorganizacao do projeto
 * chamadas autenticadas ao github api
 * calculo do valor
 
 day 3:
+* diretiva de cart
+* pagina de cart
+* remove de um elemento
+* recalculo das quantidades
+* calculo do valor total
 
 day 4:
 

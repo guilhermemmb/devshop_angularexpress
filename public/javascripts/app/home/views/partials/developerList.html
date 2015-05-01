@@ -1,20 +1,34 @@
 <table class="table table-hover">
     <thead>
+        <th></th>
         <th>Username</th>
         <th>Profile</th>
         <th>Value</th>
+        <th>Hours</th>
         <th></th>
     </thead>
     <tbody>
-        <tr ng-if="vm.loading">
-            <td colspan="4">loading ...</td>
-        </tr>
-        <tr ng-if="!vm.loading" ng-repeat="dev in vm.list">
+        <tr ng-repeat="dev in vm.list">
+            <td ><img style="height:50px" ng-src="{{::dev.avatar_url}}"/></td>
             <td>{{::dev.login}}</td>
             <td><a ng-href="{{::dev.html_url}}" target="_blank">profile</a></td>
             <td>$ {{::dev.value}}</td>
+            <td>
+                <input type="number" ng-model="dev.inputHour" ng-init="dev.inputHour = 1" />
+            </td>
             <td><button ng-click="vm.addToCart(dev)" class="btn btn-default">add to cart</button></td>
         </tr>
+        <tr ng-if="vm.loading">
+            <td >loading ...</td>
+            <td colspan="5"></td>
+        </tr>
+        <tr ng-if="!vm.endList && !vm.loading">
+            <td>
+                <a ng-click="vm.getUsers()" class="btn">load more results</a>
+            </td>
+            <td colspan="5"></td>
+        </tr>
+
     </tbody>
 </table>
 
