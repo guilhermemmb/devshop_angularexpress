@@ -23,6 +23,7 @@ day 2:
 day 3:
 * diretiva de cart
 * pagina de cart
+* paginacao da lista
 * remove de um elemento
 * recalculo das quantidades
 * calculo do valor total
