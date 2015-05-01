@@ -23,10 +23,16 @@ function removeItem(key, id) {
 	return true;
 }
 
+function clear(key) {
+	delete cartMemory[key];
+}
+
+
 var expose = {
 	save: save,
 	removeItem: removeItem,
-	getAll: getAll
+	getAll: getAll,
+	clear: clear
 }
 
 module.exports = expose;

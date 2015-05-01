@@ -49,23 +49,37 @@ function getUsersFromOrg(page, size) {
 	return defer.promise;
 }
 
+var userDetailsCache = {};
+
 function getUserDetail(username) {
 	var defer = q.defer();
 
-	var options = _.extend({}, DEFAULT_OPTIONS, {
-		url : buildUrl(BASE_URL + '/users/' + username)
-	});
+	var userDetail = userDetailsCache[username];
 
-	request.get(options, function (error, response) {
-		if(error != undefined) return defer.reject(error);
+	if(userDetail === undefined) {
+		var options = _.extend({}, DEFAULT_OPTIONS, {
+			url: buildUrl(BASE_URL + '/users/' + username)
+		});
 
-		defer.resolve(JSON.parse(response.body));
-	});
+		request.get(options, function (error, response) {
+			if (error != undefined) return defer.reject(error);
+
+			userDetail = JSON.parse(response.body);
+
+			userDetailsCache[username] = userDetail;
+
+			defer.resolve(userDetail);
+		});
+	}
+	else {
+		defer.resolve(userDetail);
+	}
 
 	return defer.promise;
 }
 var expose = {
-	getUsersFromOrg : getUsersFromOrg
+	getUsersFromOrg: getUsersFromOrg,
+	getUserDetail: getUserDetail
 }
 
 module.exports = expose;

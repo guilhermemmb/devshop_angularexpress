@@ -3,4 +3,19 @@
 
     <cart-list></cart-list>
 </div>
+<div class="row">
+    <div class="col-lg-6">
+        <label for="inputDiscount">Insert your discount code here</label>
+        <input id="inputDiscount" ng-focus="vm.onEnterDiscountField()" ng-blur="vm.checkDiscount()" type="text" ng-model="vm.discountCode"/>
+        <div ng-if="!vm.loadingDiscount && vm.discountCode.length > 0 && !vm.discountValue">
+            invalid discount
+        </div>
+        <div ng-if="!vm.loadingDiscount && vm.discountCode.length > 0 && vm.discountValue > 0">
+            discount : {{vm.discountValue }}
+        </div>
+    </div>
+    <div class="col-lg-1">
+        <button ng-click="vm.checkout()" class="btn btn-info">Proceed to checkout!</button>
+    </div>
+</div>
 

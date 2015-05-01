@@ -32,6 +32,10 @@ day 4:
 * persistencia do carrinho em memoria
 * geracao de token 'per user' -> per browser -> cookie
 * remocao de item do carrinho
+* plus - mantendo o request de info de dados do user do github em memoria
+* checkout
+* cupom desconto
+* limpando o cart no final do checkout
 
 ### Entrega após o 4o dia
 

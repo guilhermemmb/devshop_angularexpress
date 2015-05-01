@@ -13,6 +13,18 @@ function getOrgUsers(page, size) {
 	});
 }
 
+function getUserDetails(username) {
+	var defer = q.defer();
+
+	githubRepo.getUserDetail(username).then(function(data) {
+		data.value = buildUserValue(user);
+
+		defer.resolve(data);
+	});
+
+	return defer.promise;
+}
+
 function buildUserValue(data) {
 	return parseFloat(30 + ((data.public_repos || 0) * 0.75) +
 		((data.public_gists || 0) * 0.5) +
@@ -21,7 +33,8 @@ function buildUserValue(data) {
 }
 
 var expose = {
-	getOrgUsers : getOrgUsers
+	getOrgUsers : getOrgUsers,
+	getUserDetails: getUserDetails
 }
 
 module.exports = expose;

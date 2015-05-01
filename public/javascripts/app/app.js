@@ -11,11 +11,11 @@ var app = angular.module('vtexApp', [
 
 	$routeProvider.when('/home', {
 		templateUrl: '/javascripts/app/home/views/index.html',
-		controller: 'homeController'
+		controller: 'homeController as vm'
 	})
 	.when('/cart', {
 		templateUrl:'/javascripts/app/cart/views/index.html',
-		controller: 'cartController'
+		controller: 'cartController as vm'
 	}).otherwise({
 		redirectTo: '/home'
 	});
