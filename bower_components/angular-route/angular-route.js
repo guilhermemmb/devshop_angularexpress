@@ -31,7 +31,7 @@ var ngRouteModule = angular.module('ngRoute', ['ng']).
  *
  * @description
  *
- * Used for configuring routes.
+ * Used for configuring controllers.
  *
  * ## Example
  * See {@link ngRoute.$route#example $route} for an example of configuring and using `ngRoute`.
@@ -63,7 +63,7 @@ function $RouteProvider() {
    *        when the route matches.
    *    * `path` can contain optional named groups with a question mark: e.g.`:name?`.
    *
-   *    For example, routes like `/color/:color/largecode/:largecode*\/edit` will match
+   *    For example, controllers like `/color/:color/largecode/:largecode*\/edit` will match
    *    `/color/brown/largecode/code/with/slashes/edit` and extract:
    *
    *    * `color: brown`
@@ -135,7 +135,7 @@ function $RouteProvider() {
    *      If the option is set to `false` and url in the browser changes, then
    *      `$routeUpdate` event is broadcasted on the root scope.
    *
-   *    - `[caseInsensitiveMatch=false]` - {boolean=} - match routes without being case sensitive
+   *    - `[caseInsensitiveMatch=false]` - {boolean=} - match controllers without being case sensitive
    *
    *      If the option is set to `true`, then the particular route can be matched without being
    *      case sensitive
@@ -179,7 +179,7 @@ function $RouteProvider() {
    * @name $routeProvider#caseInsensitiveMatch
    * @description
    *
-   * A boolean property indicating if routes defined
+   * A boolean property indicating if controllers defined
    * using this provider should be matched using a case insensitive
    * algorithm. Defaults to `false`.
    */
@@ -273,7 +273,7 @@ function $RouteProvider() {
      *     - `$scope` - The current route scope.
      *     - `$template` - The current route template HTML.
      *
-     * @property {Object} routes Object with all route configuration Objects as its properties.
+     * @property {Object} controllers Object with all route configuration Objects as its properties.
      *
      * @description
      * `$route` is used for deep-linking URLs to controllers and views (HTML partials).
@@ -281,7 +281,7 @@ function $RouteProvider() {
      *
      * Requires the {@link ngRoute `ngRoute`} module to be installed.
      *
-     * You can define routes through {@link ngRoute.$routeProvider $routeProvider}'s API.
+     * You can define controllers through {@link ngRoute.$routeProvider $routeProvider}'s API.
      *
      * The `$route` service is typically used in conjunction with the
      * {@link ngRoute.directive:ngView `ngView`} directive and the

@@ -233,7 +233,7 @@ function $Resolve(  $q,    $injector) {
    * As a special case, an invocable can be a string, in which case it is taken to 
    * be a service name to be passed to `$injector.get()`. This is supported primarily 
    * for backwards-compatibility with the `resolve` property of `$routeProvider` 
-   * routes.
+   * controllers.
    *
    * @param {object} invocables functions to invoke or 
    * `$injector` services to fetch.

@@ -1,10 +1,7 @@
-var express = require('express');
 var _ = require('lodash');
 var glob = require('glob');
-var router = express.Router();
 
-router.get('/', function (req, res, next) {
-
+function index(req, res) {
 	var statics = getStatics();
 
 	res.render('layout', {
@@ -16,7 +13,7 @@ router.get('/', function (req, res, next) {
 	});
 
 	return;
-});
+};
 
 var getStatics = (function () {
 	var obj = {jsLibs: undefined, jsApp: undefined, css: undefined};
@@ -58,4 +55,6 @@ function setLibOrder(list) {
 	return _.union(orderedList, list);
 }
 
-module.exports = router;
+module.exports =  {
+	index: index
+};

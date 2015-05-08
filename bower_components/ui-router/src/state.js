@@ -590,7 +590,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   - ** value ** - {object|function=}: specifies the default value for this
    *     parameter.  This implicitly sets this parameter as optional.
    *
-   *     When UI-Router routes to a state and no value is
+   *     When UI-Router controllers to a state and no value is
    *     specified for this parameter in the URL or transition, the
    *     default value will be used instead.  If `value` is a function,
    *     it will be injected and invoked, and the return value used.

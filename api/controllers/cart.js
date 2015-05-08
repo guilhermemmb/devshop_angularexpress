@@ -1,25 +1,23 @@
-var express = require('express');
-var router = express.Router();
 var cartService = require('../services/cartService');
 
-router.post('/save', function(req, res, next) {
+function save(req, res) {
 	var items = req.body.items;
 
 	var user_key = req.headers.user_key;
 	cartService.save(user_key, items);
 
 	res.json('ok');
-});
+};
 
-router.get('/get', function(req, res, next) {
+function getCart(req, res) {
 
 	var user_key = req.headers.user_key;
 	var items = cartService.get(user_key);
 
 	res.json(items);
-});
+};
 
-router.post('/checkDiscount', function(req, res, next) {
+function checkDiscount(req, res) {
 	var discountCode = req.body.discountCode;
 	try{
 		var value = cartService.checkDiscountCode(discountCode);
@@ -30,9 +28,9 @@ router.post('/checkDiscount', function(req, res, next) {
 	}
 
 	res.json({value: value });
-});
+};
 
-router.post('/checkout', function(req, res, next) {
+function checkout(req, res, next) {
 	var user_key = req.headers.user_key;
 
 	var discountCode = req.body.discountCode;
@@ -52,6 +50,11 @@ router.post('/checkout', function(req, res, next) {
 	}
 
 	res.json(checkoutData);
-});
+};
 
-module.exports = router;
+module.exports = {
+	save: save,
+	checkDiscount: checkDiscount,
+	checkout: checkout,
+	getCart: getCart
+};

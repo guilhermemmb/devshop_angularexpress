@@ -539,7 +539,7 @@ function $Resolve(  $q,    $injector) {
    * As a special case, an invocable can be a string, in which case it is taken to 
    * be a service name to be passed to `$injector.get()`. This is supported primarily 
    * for backwards-compatibility with the `resolve` property of `$routeProvider` 
-   * routes.
+   * controllers.
    *
    * @param {object} invocables functions to invoke or 
    * `$injector` services to fetch.
@@ -2740,7 +2740,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   - ** value ** - {object|function=}: specifies the default value for this
    *     parameter.  This implicitly sets this parameter as optional.
    *
-   *     When UI-Router routes to a state and no value is
+   *     When UI-Router controllers to a state and no value is
    *     specified for this parameter in the URL or transition, the
    *     default value will be used instead.  If `value` is a function,
    *     it will be injected and invoked, and the return value used.
