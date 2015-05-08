@@ -75,7 +75,7 @@ describe('user controller', function () {
 
 					setTimeout(function () {
 						expect(resMock.json.firstCall.args[0]).to.equal(expectedData);
-					},0);
+					},100);
 				});
 			});
 			describe('e o servico falha', function () {
@@ -92,13 +92,14 @@ describe('user controller', function () {
 
 					resMock.status = sinon.stub().withArgs(500).returns({send: messageSpy});
 
+
 					sut.getAll(reqMock, resMock);
 
 					dfd.reject(EXPECTED_MESSAGE);
 
 					setTimeout(function () {
 						expect(messageSpy.firstCall.args[0]).to.equal(EXPECTED_MESSAGE);
-					},0);
+					}, 100);
 				});
 			});
 		});

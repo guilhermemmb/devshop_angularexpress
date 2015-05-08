@@ -23,28 +23,38 @@ function buildUrl(url) {
 function getUsersFromOrg(page, size) {
 	var defer = q.defer();
 
-	var options = _.extend({}, DEFAULT_OPTIONS, {
-		url : buildUrl(BASE_URL + '/orgs/'  + ORGANIZATION + '/members'  + '?page=' + page + '&per_page=' + size)
-	});
+	if(!page || page < 1) {
+		defer.reject('page');
+	}
+	else if(!size || size < 1) {
+		defer.reject('size');
+	}
 
-	var detailsList = [];
-	request.get(options, function (error, response) {
-		if(error != undefined) return defer.reject(error);
+	else {
+		var options = _.extend({}, DEFAULT_OPTIONS, {
+			url : buildUrl(BASE_URL + '/orgs/'  + ORGANIZATION + '/members'  + '?page=' + page + '&per_page=' + size)
+		});
 
-		var list = (JSON.parse(response.body));
+		var detailsList = [];
+		request.get(options, function (error, response) {
+			console.log("ehauehaueha" , error, response);
+			if(error != undefined) return defer.reject(error);
 
-		var done = 0;
-		list.forEach(function(element) {
-			getUserDetail(element.login).then(function (data) {
-				detailsList.push(data);
-			}).finally(function () {
-				++done;
-				if (done === list.length) {
-					defer.resolve(detailsList);
-				}
+			var list = (JSON.parse(response.body));
+
+			var done = 0;
+			list.forEach(function(element) {
+				getUserDetail(element.login).then(function (data) {
+					detailsList.push(data);
+				}).finally(function () {
+					++done;
+					if (done === list.length) {
+						defer.resolve(detailsList);
+					}
+				});
 			});
 		});
-	});
+	}
 
 	return defer.promise;
 }
