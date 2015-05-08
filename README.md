@@ -39,3 +39,22 @@ day 4:
 
 ### Entrega após o 4o dia
 
+
+day 5: 070514
+* criacao dos testes possiveis
+* refactor para disponibilizar os controllers e reorganizada neles
+
+
+Antes de tudo
+-------------
+
+Para executar os testes
+-----------------------
+npm test
+
+
+Para rodar
+----------
+npm start
+
+
